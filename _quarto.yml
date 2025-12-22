@@ -3,8 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "Tutorials"
-  favicon: 🌌
+  favicon: https://emojipedia.org/milky-way
   navbar:
     right:
       - text: "About"
