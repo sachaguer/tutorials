@@ -1,0 +1,15 @@
+---
+title: "Tutorials"
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta http-equiv="refresh" content="0; url=https://sachaguer.github.io/teaching">
+---
+
+<script>
+  window.location.href = "https://sachaguer.github.io/teaching";
+</script>
+
+Redirecting to [https://sachaguer.github.io/teaching](https://sachaguer.github.io/teaching)...
+

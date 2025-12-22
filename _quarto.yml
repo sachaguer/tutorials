@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Tutorials"
+  navbar:
+    right:
+      - text: "About"
+        href: https://sachaguer.github.io/
+      - text: "Publications"
+        href: https://sachaguer.github.io/publications/
+      - text: "Projects"
+        href: https://sachaguer.github.io/projects/
+      - text: "Repositories"
+        href: https://sachaguer.github.io/repositories/
+      - text: "CV"
+        href: https://sachaguer.github.io/cv/
+      - text: "Teaching"
+        href: https://sachaguer.github.io/teaching/
+      - text: "Talks"
+        href: index.qmd
+    left:
+      - icon: github
+        href: https://github.com/sachaguer
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-fold: false
+    code-tools: true

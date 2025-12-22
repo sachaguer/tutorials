@@ -1,0 +1,15 @@
+/* Custom styles for the website */
+
+.quarto-title-banner {
+  background-color: #f8f9fa;
+}
+
+/* Add spacing to lists */
+ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Style for code blocks */
+pre {
+  border-radius: 5px;
+}

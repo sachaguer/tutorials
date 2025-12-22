@@ -1,7 +1,7 @@
 # %% [markdown]
 # ---
 # title: "Aiguille de Buffon"
-# description: "Simulation de l'expérience de l'aiguille de Buffon pour estimer la valeur de $\pi$."
+# description: "Simulation de l'expérience de l'aiguille de Buffon pour estimer la valeur de $\\pi$."
 # author: "Sacha Guerrini"
 # date: today
 # format: html
@@ -564,7 +564,7 @@ Plottons ce résultat.
 
 # %%
 # |label: fig-pi-estimate
-# |fig-cap: "Estimation de la valeur de $\pi$ en fonction du nombre d'échantillons."
+# |fig-cap: "Estimation de la valeur de $\\pi$ en fonction du nombre d'échantillons."
 fig, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 mean_pi = [2*l/(a*mean_p) for mean_p in mean_proba]
@@ -616,5 +616,5 @@ On observe qu'à mesure que le nombre d'échantillons augmente, l'histogramme de
 
 ## Conclusion
 
-Dans ce notebook, nous avons simulé l'expérience de l'aiguille de Buffon pour estimer la probabilité de croisement d'une aiguille avec des lignes parallèles. Nous avons validé notre simulation en comparant les résultats numériques avec la solution analytique connue. Nous avons également étudié la convergence de l'estimation de la probabilité en fonction du nombre d'échantillons, en observant que l'écart-type de l'estimation diminue conformément au théorème central limite.
+Dans ce notebook, nous avons simulé l'expérience de l'aiguille de Buffon pour estimer la probabilité de croisement d'une aiguille avec des lignes parallèles. Nous avons validé notre simulation en comparant les résultats numériques avec la solution analytique connue. Nous avons également étudié la convergence de l'estimation de la probabilité en fonction du nombre d'échantillons, en observant que l'écart-type de l'estimation diminue conformément au théorème central limite. Nous avons conclus en utilisant cette estimation pour calculer la valeur de $\pi$ et son incertitude associée.
 """
