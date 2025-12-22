@@ -19,7 +19,7 @@ website:
       - text: "Teaching"
         href: https://sachaguer.github.io/teaching/
       - text: "Talks"
-        href: index.qmd
+        href: https://sachaguer.github.io/talks/
     left:
       - icon: github
         href: https://github.com/sachaguer
