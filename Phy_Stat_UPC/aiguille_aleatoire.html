@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sacha Guerrini">
-<meta name="dcterms.date" content="2025-12-22">
+<meta name="dcterms.date" content="2026-02-01">
 <meta name="description" content="Simulation de l’expérience de l’aiguille de Buffon pour estimer la valeur de \pi.">
 
 <title>Aiguille de Buffon</title>
@@ -239,7 +239,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 22, 2025</p>
+      <p class="date">February 1, 2026</p>
     </div>
   </div>
   
@@ -251,7 +251,7 @@ window.Quarto = {
 </header>
 
 
-<div id="aaf92d01" class="cell" data-execution_count="1">
+<div id="980a6315" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stderr">
 <pre><code>&lt;frozen importlib._bootstrap&gt;:241: RuntimeWarning:
 
@@ -296,7 +296,7 @@ Figure&nbsp;1: Visualisation des aiguilles échantillonnées aléatoirement.
 </div>
 </div>
 <p>On peut maintenant implémenter des fonctions pour déterminer si une aiguille croise la ligne <span class="math inline">\(x=0\)</span>. Nous pouvons adopter deux stratégies: - Vérifier si l’aiguille croise en utilisant les extrémités de l’aiguille (<code>is_needle_crossing_endpoint</code>). - Vérifier si l’aiguille croise en utilisant le centre (<code>is_needle_crossing_middle</code>).</p>
-<div id="5bce7862" class="cell" data-execution_count="6">
+<div id="863e530b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">all</span>( is_needle_crossing_endpoint(x, angle, l) <span class="op">==</span> is_needle_crossing_middle(x, angle, l))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>False</code></pre>
@@ -320,7 +320,7 @@ Figure&nbsp;2: Visualisation des aiguilles échantillonnées aléatoirement avec
 <section id="calcul-de-la-probabilité-de-croisement" class="level2">
 <h2 class="anchored" data-anchor-id="calcul-de-la-probabilité-de-croisement">Calcul de la probabilité de croisement</h2>
 <p>On peut maintenant écrire une fonction pour estimer la probabilité de croisement en échantillonnant un grand nombre d’aiguilles et en comptant le nombre de croisements.</p>
-<div id="0bd7cfd0" class="cell" data-execution_count="8">
+<div id="5a82b9e7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_probability(num_samples, a, l):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Computes the probability of crossing the line x=0.</span></span>
@@ -343,20 +343,20 @@ Figure&nbsp;2: Visualisation des aiguilles échantillonnées aléatoirement avec
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    bool_crossing <span class="op">=</span> is_needle_crossing_endpoint(x, angle, l)</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(bool_crossing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e2667bc9" class="cell" data-execution_count="9">
+<div id="1bcfb472" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>num_samples <span class="op">=</span> <span class="dv">100_000</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>proba <span class="op">=</span> compute_probability(num_samples, a<span class="op">=</span>a, l<span class="op">=</span>l)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estimated probability: </span><span class="sc">{</span>proba<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Target probability: </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span>l<span class="op">/</span>(np.pi<span class="op">*</span>a)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Estimated probability: 0.5105
+<pre><code>Estimated probability: 0.5086
 Target probability: 0.5093</code></pre>
 </div>
 </div>
 <p>Les deux valeurs sont en bon accord, ce qui valide notre simulation. Nous pouvons maintenant étudier la convergence de l’estimation de la probabilité en fonction du nombre d’échantillons. En particulier, en répétant l’expérience plusieurs fois pour un nombre fixe d’échantillons, nous pouvons estimer la variance de l’estimation ce qui permettra d’estimer un intervalle de confiance pour la valeur de la probabilité.</p>
 <p>Ecrivons d’abord la fonction <code>sample_proba</code> qui répète l’expérience plusieurs fois pour un nombre fixe d’échantillons.</p>
-<div id="2c63d5b0" class="cell" data-execution_count="10">
+<div id="944a72b6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sample_proba(num_iter, num_samples, a, l):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Samples the probability of crossing the line x=0 multiple times.</span></span>
@@ -385,9 +385,9 @@ Target probability: 0.5093</code></pre>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>On peut maintenant répéter l’expérience pour différents nombres d’échantillons et tracer la convergence de l’estimation de la probabilité.</p>
-<div id="cbf981c3" class="cell" data-execution_count="11">
+<div id="cc5a634e" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stderr">
-<pre><code>  0%|          | 0/6 [00:00&lt;?, ?it/s] 50%|█████     | 3/6 [00:00&lt;00:00, 22.13it/s] 50%|█████     | 3/6 [00:19&lt;00:00, 22.13it/s]100%|██████████| 6/6 [01:12&lt;00:00, 14.18s/it]100%|██████████| 6/6 [01:12&lt;00:00, 12.06s/it]</code></pre>
+<pre><code>  0%|          | 0/6 [00:00&lt;?, ?it/s] 50%|█████     | 3/6 [00:00&lt;00:00, 20.88it/s] 50%|█████     | 3/6 [00:19&lt;00:00, 20.88it/s]100%|██████████| 6/6 [01:16&lt;00:00, 15.00s/it]100%|██████████| 6/6 [01:16&lt;00:00, 12.76s/it]</code></pre>
 </div>
 </div>
 <div id="cell-fig-proba-convergence" class="cell" data-execution_count="12">
@@ -421,14 +421,14 @@ Figure&nbsp;4: Écart-type de l’estimation de la probabilité en fonction du n
 </div>
 </div>
 <p>On observe une relation de type loi de puissance entre l’écart-type et le nombre d’échantillons. Pour quantifier cette relation, nous pouvons effectuer une régression linéaire sur les données log-log.</p>
-<div id="4ba32fd4" class="cell" data-execution_count="14">
+<div id="2cdde68f" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>log_num_samples <span class="op">=</span> np.log(num_samples_list)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>log_std_proba <span class="op">=</span> np.log(std_proba)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>slope, intercept, r_value, p_value, std_err <span class="op">=</span> stats.linregress(log_num_samples, log_std_proba)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Slope: </span><span class="sc">{</span>slope<span class="sc">:.4f}</span><span class="ss"> ± </span><span class="sc">{</span>std_err<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Slope: -0.4985 ± 0.0021</code></pre>
+<pre><code>Slope: -0.5053 ± 0.0027</code></pre>
 </div>
 </div>
 <p>On observe que la variance de l’esimateur décroît en <span class="math inline">\(\propto N^{-1/2}\)</span>. Connaissez-vous un théorème important en statistique qui explique ce comportement?</p>
@@ -489,11 +489,11 @@ Figure&nbsp;7: Estimation de la valeur de <span class="math inline">\(\pi\)</spa
 </div>
 </div>
 <p>Cela fonctionne bien! 🥳 On peut calculer l’estimation avec le plus grand nombre d’échantillons</p>
-<div id="c99418d9" class="cell" data-execution_count="18">
+<div id="f49c58db" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mean_pi[<span class="op">-</span><span class="dv">1</span>], std_pi[<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Estimated value of pi: </span><span class="sc">{</span>mean_pi[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.6f}</span><span class="ss"> ± </span><span class="sc">{</span>std_pi[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Estimated value of pi: 3.141564 ± 0.003025</code></pre>
+<pre><code>Estimated value of pi: 3.141561 ± 0.002998</code></pre>
 </div>
 </div>
 <p>On retrouve la valeur de <span class="math inline">\(\pi\)</span> à <span class="math inline">\(10^{-3}\)</span> près avec <span class="math inline">\(10^6\)</span> échantillons! Théoriquement, pour atteindre une précision de <span class="math inline">\(10^{-n}\)</span>, il faudrait environ <span class="math inline">\(10^{2n}\)</span> échantillons car l’erreur diminue en <span class="math inline">\(\propto N^{-1/2}\)</span>. Mais cela devient très coûteux en temps de calcul pour des précisions élevées…</p>
