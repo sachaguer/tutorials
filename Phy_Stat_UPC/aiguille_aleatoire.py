@@ -3,7 +3,7 @@
 # title: "Aiguille de Buffon"
 # description: "Simulation de l'expérience de l'aiguille de Buffon pour estimer la valeur de $\\pi$."
 # author: "Sacha Guerrini"
-# date: today
+# date: 2026-02-01
 # format: html
 # jupyter: python3
 # number-figures: true
@@ -29,7 +29,7 @@ sns.color_palette('husl')
 # %% [markdown]
 
 """
-Code source disponible [ici](https://github.com/sachaguerini/tutorials/tree/main/Phy_Stat_UPC/aiguille_aleatoire.py)
+Code source disponible [ici](https://github.com/sachaguer/tutorials/tree/main/Phy_Stat_UPC/aiguille_aleatoire.py)
 
 ## Contexte
 

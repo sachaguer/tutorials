@@ -3,7 +3,7 @@
 # title: Pèle mêle sur les probabilités 
 # description: "Quelques exemples de visualisations de résultats élémentaires en théorie des probabilités."
 # author: Sacha Guerrini
-# date: today
+# date: 2026-02-01
 # format: html
 # jupyter: python3
 # number-figures: true
